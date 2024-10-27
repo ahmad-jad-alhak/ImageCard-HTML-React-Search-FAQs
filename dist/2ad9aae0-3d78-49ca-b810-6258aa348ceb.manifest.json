@@ -1,0 +1,103 @@
+{
+  "id": "2ad9aae0-3d78-49ca-b810-6258aa348ceb",
+  "alias": "FaqSearchAdaptiveCardExtension",
+  "componentType": "AdaptiveCardExtension",
+  "version": "0.0.1",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "Dashboard"
+  ],
+  "preconfiguredEntries": [
+    {
+      "groupId": "bd067b1e-3ad5-4d5d-a5fe-505f07d7f59c",
+      "group": {
+        "default": "Dashboard"
+      },
+      "title": {
+        "default": "FaqSearch"
+      },
+      "description": {
+        "default": "FaqSearch description"
+      },
+      "iconImageUrl": "https://res.cdn.office.net/files/fabric-cdn-prod_20240610.001/assets/brand-icons/product-monoline/svg/vivaconnections_32x1.svg",
+      "properties": {
+        "title": "FAQs"
+      },
+      "cardSize": "Large"
+    }
+  ],
+  "loaderConfig": {
+    "internalModuleBaseUrls": [
+      "https://localhost:4321/dist/"
+    ],
+    "entryModuleId": "faq-search-adaptive-card-extension",
+    "scriptResources": {
+      "faq-search-adaptive-card-extension": {
+        "type": "path",
+        "path": "faq-search-adaptive-card-extension.js"
+      },
+      "@microsoft/sp-adaptive-card-extension-base": {
+        "type": "component",
+        "id": "eeec822e-c28a-46b4-affc-7058e4c1aa80",
+        "version": "1.20.0"
+      },
+      "FaqSearchAdaptiveCardExtensionStrings": {
+        "type": "path",
+        "path": "FaqSearchAdaptiveCardExtensionStrings_en-us.js"
+      },
+      "react": {
+        "type": "component",
+        "id": "0d910c1c-13b9-4e1c-9aa4-b008c5e42d7d",
+        "version": "17.0.1"
+      },
+      "react-dom": {
+        "type": "component",
+        "id": "aa0a46ec-1505-43cd-a44a-93f3a5aa460a",
+        "version": "17.0.1"
+      },
+      "PropertyControlStrings": {
+        "type": "localizedPath",
+        "paths": {
+          "ar-SA": "PropertyControlStrings_ar-sa.js",
+          "bg-BG": "PropertyControlStrings_bg-bg.js",
+          "ca-ES": "PropertyControlStrings_ca-es.js",
+          "cs-CZ": "PropertyControlStrings_cs-cz.js",
+          "da-DK": "PropertyControlStrings_da-dk.js",
+          "de-DE": "PropertyControlStrings_de-de.js",
+          "el-GR": "PropertyControlStrings_el-gr.js",
+          "en-GB": "PropertyControlStrings_en-gb.js",
+          "en-US": "PropertyControlStrings_en-us.js",
+          "es-ES": "PropertyControlStrings_es-es.js",
+          "et-EE": "PropertyControlStrings_et-ee.js",
+          "fi-FI": "PropertyControlStrings_fi-fi.js",
+          "fr-FR": "PropertyControlStrings_fr-fr.js",
+          "it-IT": "PropertyControlStrings_it-it.js",
+          "ja-JP": "PropertyControlStrings_ja-jp.js",
+          "lt-LT": "PropertyControlStrings_lt-lt.js",
+          "lv-LV": "PropertyControlStrings_lv-lv.js",
+          "nb-NO": "PropertyControlStrings_nb-no.js",
+          "nl-NL": "PropertyControlStrings_nl-nl.js",
+          "no": "PropertyControlStrings_no.js",
+          "pl-PL": "PropertyControlStrings_pl-pl.js",
+          "pt-PT": "PropertyControlStrings_pt-pt.js",
+          "ro-RO": "PropertyControlStrings_ro-ro.js",
+          "ru-RU": "PropertyControlStrings_ru-ru.js",
+          "sk-SK": "PropertyControlStrings_sk-sk.js",
+          "sr-Latn-RS": "PropertyControlStrings_sr-latn-rs.js",
+          "sv-SE": "PropertyControlStrings_sv-se.js",
+          "tr-TR": "PropertyControlStrings_tr-tr.js",
+          "vi-VN": "PropertyControlStrings_vi-vn.js",
+          "zh-CN": "PropertyControlStrings_zh-cn.js",
+          "zh-TW": "PropertyControlStrings_zh-tw.js"
+        },
+        "defaultPath": "PropertyControlStrings_en-us.js"
+      },
+      "@microsoft/sp-loader": {
+        "type": "component",
+        "id": "1c6c9123-7aac-41f3-a376-3caea41ed83f",
+        "version": "1.19.0"
+      }
+    }
+  }
+}
