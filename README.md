@@ -32,7 +32,7 @@ The **FAQ Search Adaptive Card Extension** for SharePoint Framework (SPFx) is de
 
 Solution               | Author(s)
 -----------------------|----------
-FAQ Search Adaptive Card Extension | [Ahmad Jad Alhak](https://github.com/your-github-profile) ([@your-twitter-handle](https://twitter.com/your-twitter-handle))
+FAQ Search Adaptive Card Extension | [Ahmad Jad Alhak](https://github.com/ahmad-jad-alhak)
 
 ## Version history
 
