@@ -4,7 +4,10 @@
 
 The **FAQ Search Adaptive Card Extension** for SharePoint Framework (SPFx) is designed to display and manage frequently asked questions (FAQs) in a user-friendly interface. It offers users the ability to browse FAQs, filter questions by category, and submit new questions directly. Additionally, the extension features a "Most Useful" section, showcasing the questions that have been marked as the most helpful. This solution uses **PnPjs** to interact with SharePoint lists for data retrieval and submission, ensuring efficient integration with SharePoint.
 
-![FAQ Search Adaptive Card Extension](assets/preview.png)
+![FAQ Search Adaptive Card Extension](assets/preview-01.png)
+![FAQ Search Adaptive Card Extension](assets/preview-02.png)
+![FAQ Search Adaptive Card Extension](assets/preview-03.png)
+![FAQ Search Adaptive Card Extension](assets/preview-03.png)
 
 ## Compatibility
 
