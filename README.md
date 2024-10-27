@@ -145,3 +145,7 @@ The FAQ Search Adaptive Card Extension demonstrates the following features:
 - [Create an App Catalog site](https://learn.microsoft.com/en-us/sharepoint/use-app-catalog)
 - [Deploying Viva Connections Adaptive Cards](https://learn.microsoft.com/en-us/sharepoint/dev/spfx/viva/build-first-adaptive-card-extension)
 - [Viva Connections Dashboard setup](https://learn.microsoft.com/en-us/viva/connections/overview-viva-connections)
+
+Disclaimer
+
+THIS CODE IS PROVIDED AS IS WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
