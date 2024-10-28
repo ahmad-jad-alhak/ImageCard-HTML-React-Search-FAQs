@@ -13,20 +13,11 @@ let spInstance: SPFI | null = null;
  */
 export const useSPContext = (context: ISPFXContext, siteUrl?: string): SPFI => {
   if (!spInstance) {
-    Logger.write(
-      "Initializing PnPjs with SharePoint context....",
-      LogLevel.Info
-    );
-
-    console.log("siteUrl");
-    console.log(siteUrl);
-    
     // Use the provided siteUrl or default to the current site URL
     const resolvedSiteUrl = siteUrl || context.pageContext.web.absoluteUrl;
 
     try {
       spInstance = spfi(resolvedSiteUrl).using(SPFx(context)); // Initialize the SPFI instance
-      Logger.write("PnPjs initialized successfully.", LogLevel.Info);
     } catch (error) {
       Logger.write(
         `Error initializing PnPjs: ${error.message}`,

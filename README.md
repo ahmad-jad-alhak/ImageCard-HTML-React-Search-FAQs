@@ -28,6 +28,28 @@ The **FAQ Search Adaptive Card Extension** for SharePoint Framework (SPFx) is de
 - Appropriate permissions to create and manage SharePoint lists
 - FAQ list and submission lists created in SharePoint Online
 
+The FAQ Search Adaptive Card Extension interacts with two SharePoint lists: **FAQ List** and **Submission List**. Below are the required columns for each list:
+
+## SharePoint Lists & Columns
+### FAQ List Columns
+
+| Column Name       | Data Type  | Description                                      |
+|-------------------|------------|--------------------------------------------------|
+| Title             | Single line of text | The title of the FAQ question.               |
+| Answer            | Multiple lines of text | The answer to the FAQ question.            |
+| Category          | Choice     | Category under which the FAQ falls.              |
+| HelpfulCount      | Number     | Count of how many users found the FAQ helpful.   |
+
+### Submission List Columns
+
+| Column Name       | Data Type  | Description                                      |
+|-------------------|------------|--------------------------------------------------|
+| Title             | Single line of text | The submitted question.                      |
+| SubmissionDate    | Date and Time | The date and time the question was submitted.  |
+| Status            | Choice     | The current status of the submitted question (e.g., "New", "Reviewed"). |
+| Category          | Choice     | The category of the submitted question.          |
+
+
 ## Solution
 
 Solution               | Author(s)
@@ -101,29 +123,6 @@ For more details, follow this guide on [Adding Cards to the Viva Connections Das
    - Edit the page where you want to add the Adaptive Card Extension.
    - Select the FAQ Search Adaptive Card Extension from the list of available extensions.
    - Configure the web part by specifying the FAQ List Name, Submission List Name, and other properties.
-
-The FAQ Search Adaptive Card Extension interacts with two SharePoint lists: **FAQ List** and **Submission List**. Below are the required columns for each list:
-
-## SharePoint Lists & Columns
-### FAQ List Columns
-
-| Column Name       | Data Type  | Description                                      |
-|-------------------|------------|--------------------------------------------------|
-| Title             | Single line of text | The title of the FAQ question.               |
-| Answer            | Multiple lines of text | The answer to the FAQ question.            |
-| Category          | Choice     | Category under which the FAQ falls.              |
-| HelpfulCount      | Number     | Count of how many users found the FAQ helpful.   |
-| Created           | Date and Time | The date when the FAQ was created.             |
-
-### Submission List Columns
-
-| Column Name       | Data Type  | Description                                      |
-|-------------------|------------|--------------------------------------------------|
-| Title             | Single line of text | The submitted question.                      |
-| SubmittedBy       | Person or Group | The user who submitted the question.         |
-| SubmissionDate    | Date and Time | The date and time the question was submitted.  |
-| Status            | Choice     | The current status of the submitted question (e.g., "New", "Reviewed"). |
-| Category          | Choice     | The category of the submitted question.          |
 
 
 ## Features

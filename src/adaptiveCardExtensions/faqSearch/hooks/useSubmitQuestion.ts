@@ -7,13 +7,13 @@ export interface ISubmitQuestionProps {
   category: string; // Add category field
 }
 
-export const useSubmitQuestion = (context: any, listName: string, siteUrl: string) => {
+export const useSubmitQuestion = (context: any, siteUrl: string, listName: string) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<boolean>(false);
 
   const submitQuestion = useCallback(
-    async ({ question, category }: ISubmitQuestionProps) => { // Include category in the parameters
+    async ({ question, category }: ISubmitQuestionProps) => {
       setLoading(true);
       setError(null);
       setSuccess(false);
@@ -25,10 +25,7 @@ export const useSubmitQuestion = (context: any, listName: string, siteUrl: strin
         // Prepare the data to be submitted
         const newItem = {
           Title: question,
-          Category: category, // Add category field to the list item
-          SubmittedBy: context.pageContext.user.displayName,
-          SubmissionDate: new Date(),
-          Status: "New", // Default status
+          Category: category, 
         };
 
         // Add a new item to the SharePoint list
@@ -42,8 +39,14 @@ export const useSubmitQuestion = (context: any, listName: string, siteUrl: strin
         setLoading(false); // Stop loading indicator
       }
     },
-    [context, listName]
+    [context, siteUrl, listName]
   );
 
-  return { submitQuestion, loading, error, success };
+  // Reset success and error states
+  const resetStatus = useCallback(() => {
+    setSuccess(false);
+    setError(null);
+  }, []);
+
+  return { submitQuestion, loading, error, success, resetStatus };
 };

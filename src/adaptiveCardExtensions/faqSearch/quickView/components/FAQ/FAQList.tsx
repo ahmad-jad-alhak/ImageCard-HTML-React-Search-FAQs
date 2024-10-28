@@ -39,15 +39,12 @@ const FAQList: React.FC<IFAQListProps> = ({
         setSelectedCategory(option.key as string);
       }
     },
-    [] 
+    []
   );
 
   const handleSearch = (query: string) => {
     setSearchQuery(query);
   };
-
-  console.log("categories");
-  console.log(categories);
 
   return (
     <div>
@@ -58,14 +55,19 @@ const FAQList: React.FC<IFAQListProps> = ({
       <CategoryDropdown
         categories={categories}
         selectedCategory={selectedCategory}
-        onCategoryChange={onCategoryChange} 
+        onCategoryChange={onCategoryChange}
         label={faqFilterLabel}
       />
       <br />
 
-      {loading && <p>Loading FAQs...</p>}
+      {/* Loading State */}
+      {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
+
+      {/* No items found */}
       {filteredItems && filteredItems.length === 0 && <p>No FAQs available.</p>}
+
+      {/* Display the first 10 most useful items */}
       {filteredItems &&
         filteredItems.map((item) => (
           <ListItem

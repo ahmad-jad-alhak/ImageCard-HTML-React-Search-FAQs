@@ -9,27 +9,27 @@ interface ICategoryDropdownProps {
     option?: IDropdownOption
   ) => void;
   label?: string; // Optional label
+  placeholder?: string; // New optional placeholder prop
 }
 
-// Memoize the CategoryDropdown to avoid re-rendering unnecessarily
 const CategoryDropdown: React.FC<ICategoryDropdownProps> = ({
   categories,
   selectedCategory,
   onCategoryChange,
   label = "Filter by Category",
+  placeholder = "All Categories", // Default to "All Categories" unless specified otherwise
 }) => {
-  console.log("CategoryDropdown has rendered....");
-  console.log(categories);
+  const options = [{ key: "", text: placeholder }, ...categories]; // Prepend placeholder option
 
   return (
     <Dropdown
-      label={label || "Select a Category"} // Default label if label is not provided
-      options={[{ key: "", text: "All Categories" }, ...categories]} // Prepend "All Categories"
-      selectedKey={selectedCategory || ""} // Set default selected option to "All Categories"
-      onChange={onCategoryChange} // UI only, no business logic
+      label={label}
+      options={options}
+      selectedKey={selectedCategory || ""} // Use empty key if nothing is selected
+      onChange={onCategoryChange}
+      placeholder={selectedCategory ? undefined : placeholder} // Set placeholder only if no category is selected
     />
   );
 };
 
-// Memoize the CategoryDropdown component to prevent unnecessary re-renders
 export default React.memo(CategoryDropdown);

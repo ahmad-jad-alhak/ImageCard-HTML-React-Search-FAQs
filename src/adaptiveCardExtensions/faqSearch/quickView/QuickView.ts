@@ -44,7 +44,6 @@ export class QuickView extends BaseWebQuickView<
     try {
       if (this.domElement) {
         ReactDOM.unmountComponentAtNode(this.domElement);
-        Logger.write("QuickView disposed and React component unmounted.", LogLevel.Info);
       } else {
         Logger.write("Warning: domElement is undefined during dispose.", LogLevel.Warning);
       }

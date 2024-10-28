@@ -38,7 +38,7 @@ const MostUsefulList: React.FC<IMostUsefulListProps> = ({
         setSelectedCategory(option.key as string);
       }
     },
-    [] 
+    []
   );
 
   return (
@@ -55,22 +55,24 @@ const MostUsefulList: React.FC<IMostUsefulListProps> = ({
       {/* Loading State */}
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
-      
+
       {/* No items found */}
       {filteredItems && filteredItems.length === 0 && (
         <p>No useful questions available.</p>
       )}
-      
+
       {/* Display the first 10 most useful items */}
       {filteredItems &&
-        filteredItems.slice(0, 10).map((item) => (
-          <ListItem
-            key={item.Id}
-            item={item}
-            listName={listName}
-            context={context}
-          />
-        ))}
+        filteredItems
+          .slice(0, 10)
+          .map((item) => (
+            <ListItem
+              key={item.Id}
+              item={item}
+              listName={listName}
+              context={context}
+            />
+          ))}
     </div>
   );
 };

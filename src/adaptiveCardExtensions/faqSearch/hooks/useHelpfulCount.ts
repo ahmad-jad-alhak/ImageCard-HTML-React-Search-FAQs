@@ -24,11 +24,6 @@ export const useHelpfulCount = (
       // Fetch current helpful count
       const listItem = await list.items.getById(itemId).select("HelpfulCount")();
       const currentHelpfulCount = listItem.HelpfulCount || 0;
-      
-      Logger.write(
-        `Current helpful count for item ${itemId}: ${currentHelpfulCount}`,
-        LogLevel.Info
-      );
 
       // Increment helpful count
       const updatedHelpfulCount = currentHelpfulCount + 1;
@@ -37,11 +32,6 @@ export const useHelpfulCount = (
       await list.items.getById(itemId).update({
         HelpfulCount: updatedHelpfulCount,
       });
-
-      Logger.write(
-        `Updated helpful count for item ${itemId} to ${updatedHelpfulCount}`,
-        LogLevel.Info
-      );
 
       // Update the state with the new helpful count
       setHelpfulCount(updatedHelpfulCount);

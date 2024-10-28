@@ -1,35 +1,31 @@
 import * as React from "react";
-import { useState } from "react";
-import { Stack, PrimaryButton, TextField, MessageBar, MessageBarType } from "@fluentui/react";
+import { useState, useEffect } from "react";
+import {
+  Stack,
+  PrimaryButton,
+  TextField,
+  MessageBar,
+  MessageBarType,
+} from "@fluentui/react";
 import CategoryDropdown from "../Shared/CategoryDropdown";
 import { useSubmitQuestion } from "../../../hooks/useSubmitQuestion";
 import { IDropdownOption } from "@fluentui/react";
 import { ISPFXContext } from "@pnp/sp";
 
-const SubmitQuestionForm: React.FC<{ 
+const SubmitQuestionForm: React.FC<{
   context: ISPFXContext;
   siteUrl: string;
   listName: string;
   categories: IDropdownOption[];
 }> = ({ context, siteUrl, listName, categories }) => {
-  const { submitQuestion, loading, error, success } = useSubmitQuestion(
-    context,
-    siteUrl,
-    listName
-  );
+  const { submitQuestion, loading, error, success, resetStatus } =
+    useSubmitQuestion(context, siteUrl, listName);
   const [question, setQuestion] = useState<string>("");
   const [selectedCategory, setSelectedCategory] = useState<string>("");
-  const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     await submitQuestion({ question, category: selectedCategory });
-    
-    if (success) {
-      setQuestion("");
-      setShowSuccessMessage(true);
-      setTimeout(() => setShowSuccessMessage(false), 3000);
-    }
   };
 
   const onCategoryChange = (
@@ -40,6 +36,20 @@ const SubmitQuestionForm: React.FC<{
       setSelectedCategory(option.key as string);
     }
   };
+
+  // Show the success message for 3 seconds when `success` changes
+  useEffect(() => {
+    if (success) {
+      setQuestion(""); // Reset question field after successful submission
+      setSelectedCategory(""); // Optional: reset category selection if desired
+
+      const timer = setTimeout(() => {
+        resetStatus();
+      }, 3000);
+
+      return () => clearTimeout(timer); // Cleanup the timer on unmount or if success changes
+    }
+  }, [success, resetStatus]);
 
   return (
     <Stack tokens={{ childrenGap: 15 }}>
@@ -59,6 +69,7 @@ const SubmitQuestionForm: React.FC<{
             selectedCategory={selectedCategory}
             onCategoryChange={onCategoryChange}
             label="Select a Category"
+            placeholder="Select an option" // Placeholder text specific to SubmitQuestionForm
           />
           <PrimaryButton
             text={loading ? "Submitting..." : "Submit Question"}
@@ -70,7 +81,7 @@ const SubmitQuestionForm: React.FC<{
               {error}
             </MessageBar>
           )}
-          {showSuccessMessage && (
+          {success && (
             <MessageBar messageBarType={MessageBarType.success}>
               Question submitted successfully!
             </MessageBar>
